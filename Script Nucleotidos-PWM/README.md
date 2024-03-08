@@ -8,7 +8,7 @@ Correr el archivo principal Nuc-PWM.py en una carpeta con el archivo de nucleoti
 Responder si requiere que el output sea en horizontal o vertical  
 Por último poner el nombre con el cuál se quiere guardar el archivo
 
-Change Log
+Change Log  
 V1.0 (6/3)  
 Se crean las funciones principales para procesar la información.  
 Abre un archivo (falta poder agregarle el argumento por consola). Siempre y cuando los archivos sean fasta, o solo contengan las lineas de nucleotidos, el script puede generar una lista con diccionarios que tienen como llave el nucleotido, y el conteo de ellos en cada posición.
