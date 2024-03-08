@@ -4,7 +4,8 @@ Script creado por Sebastian Quiroz para Pontificia Universidad Católica de Chil
 Contacto. <squirozpa@uc.cl>
 
 Utilizacion:  
-Correr el archivo principal Nuc-PWM.py en una carpeta con el archivo de nucleotidos a procesar, puede estar en formato fasta o raw en la forma: (pyhton) Nuc-PWM.py [nombre_archivo]
+Correr el archivo principal Nuc-PWM.py en una carpeta con el archivo de nucleotidos a procesar, puede estar en formato fasta o raw en la forma:  
+(pyhton) Nuc-PWM.py [nombre_archivo]  
 Responder si requiere que el output sea en horizontal o vertical  
 Por último poner el nombre con el cuál se quiere guardar el archivo
 
