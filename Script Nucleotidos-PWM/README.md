@@ -18,7 +18,7 @@ Ejemplos:
 - Fuzzy con threshold de 0.6
 (pyhton) Nuc-PWM.py [nombre_archivo.fasta] -f 0.6 [output]  
 
--PWM con orientacion vertical
+- PWM con orientacion vertical
 (python3) Nuc_PWM.py [nombre_arhivo.raw] -p -h [output]  
 
 Change Log  
