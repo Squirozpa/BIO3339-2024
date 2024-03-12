@@ -6,8 +6,15 @@ import sys
 import os
 
 
-def open_file(file_path: str):
-    """Function that recieves a path to open file and return it as a list"""
+def open_file(file_path: str) -> list:
+    """Function that recives the path to open the file then returns a list of the nts
+
+    Args:
+        file_path (str): File name for processing
+
+    Returns:
+        list: List of nts, where every line is a different sequence
+    """
 
     file = open(file_path, "r")
     lines_file = file.read().splitlines(False)
@@ -21,12 +28,19 @@ def open_file(file_path: str):
     return nts_list
 
 
-def counter(nts_list: list):
-    """Function recieves the list of sequences and creates a list of dictionaries with the length of the first string, then returns the count of nts for each position"""
+def counter(nts_distribution: list) -> list[dict]:
+    """Function that creates a list of dictionaries, that contains the count of nucleotides per position
+
+    Args:
+        nts_list (list): List of nucleotides
+
+    Returns:
+        list[dict]: Each item on the list represents the position, the dictionary contains the info of nucleotide count
+    """
 
     nts_distribution = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
-                        for n in range(len(nts_list[0]))]
-    for line in nts_list:
+                        for n in range(len(nts_distribution[0]))]
+    for line in nts_distribution:
         # for each "sequence" (line)
         for i in range(len(line)):
             # for every position, adds a count to the corresponding nts of that position
@@ -34,8 +48,16 @@ def counter(nts_list: list):
     return nts_distribution
 
 
-def pwmer(nts_list: list, marker: str):
-    """Function that recieves the list already counted and asks for vertical or horizontal PWM, then returns the PWM in the specified format"""
+def pwmer(nts_list: list[dict], marker: str) -> str:
+    """Function to return the Position Weight Matrix from the list of nucleotide count
+
+    Args:
+        nts_distribution (list[dict]): List of the count of nts per position
+        marker (str): Marker to output in vertical or horizontal (-v/-h)
+
+    Returns:
+        str: A string of the PWM
+    """
 
     if marker.lower() == "-h":
         nts_headers = ["A", "C", "G", "T"]
@@ -60,16 +82,31 @@ def pwmer(nts_list: list, marker: str):
     return final
 
 
-def saver(pwm_str: str, file_name: str):
-    """Function that recieves tha PWM str and saves it as a file with the specified name"""
+def saver(save_string: str, file_name: str) -> str:
+    """Function to save the file as a .txt
+
+    Args:
+        save_string (str): String containing the info to save as a file
+        file_name (str): Name of the file to be saved as
+
+    Returns:
+        str: File name
+    """
 
     file = open(f"{file_name}.txt", "w")
-    file.write(pwm_str)
+    file.write(save_string)
     return file_name
 
 
-def frecuency(nts_list: list):
-    """Function that recieves the nucleotide list and returns a dict of the relative function of each nucleotide in each position"""
+def frecuency(nts_list: list) -> list[dict]:
+    """Function to calculate the relative frequency of each nts per position
+
+    Args:
+        nts_list (list): List of nucleotides
+
+    Returns:
+        list[dict]: List where every item represents the position of the nucleotides and contains the info of relative frequency as a dictionary
+    """
     nts_freq = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
                 for n in range(len(nts_list))]
     for sequence in range(len(nts_list)):
@@ -84,7 +121,15 @@ def frecuency(nts_list: list):
     return nts_freq
 
 
-def degen_iupac(nts: list):
+def degen_iupac(nts: list) -> str:
+    """Function to obtain the degenerate IUPAC nomenclature of the nts, according to the possible nts given
+
+    Args:
+        nts (list): List that contains only the possible possible nucleotides (in string format)
+
+    Returns:
+        str: A single letter of the corresponding degenerate IUPAC nomencalture
+    """
     if len(nts) == 2:
         if "A" in nts:
             if "T" in nts:
@@ -114,7 +159,16 @@ def degen_iupac(nts: list):
             return "B"
 
 
-def fuzzy(nts_freq: list[dict], threshold: str):
+def fuzzy(nts_freq: list[dict], threshold: str) -> str:
+    """Function that uses the nts relative frequency and returns a str of the Fuzzy type nts, per position
+
+    Args:
+        nts_freq (list[dict]): List of the relative frequency per position and nts
+        threshold (str): Threshold to be considered when selecting posible nts
+
+    Returns:
+        str: String of the fuzzy type nucleotides per position
+    """
     threshold = float(threshold)
     up_treshold = threshold
     mid_treshold = threshold/2
@@ -164,7 +218,7 @@ if __name__ == "__main__":
 
     except IndexError:
         print(
-            "Please run the script with the name of the file to analyze, with the marker for PWM or fuzzy or both (-p/-f),\
+            "Please run the script with the name of the file to analyze, with the marker for PWM or fuzzy or both (-p/-f), \
 if PWM, also with marker for horizontal or vertical (-h/-v), or if fuzzy, with threshold for recognition and with\
 name(s) of the output file, please refer to the readme for more info"
         )
@@ -175,9 +229,9 @@ name(s) of the output file, please refer to the readme for more info"
         counted = counter(file)
 
     except FileNotFoundError:
-        print("File name not found, please make sure to just add the name, and for the file to analyze to be in the same folder\
-            as the script, refer to the readme for more info")
-
+        print("File name not found, please make sure to just add the name,and that the file to analyze is in the same folder \
+as the script, refer to the readme for more info")
+        sys.exit()
     if analyze_marker == "-p":
         if orient_marker == "-v" or orient_marker == "-h":
             output = pwmer(counted, orient_marker)

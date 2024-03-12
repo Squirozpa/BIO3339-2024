@@ -15,10 +15,10 @@ si es PWM se requiere entregar la orientacion del output file -h para horizontal
 
 Ejemplos:  
 
-- Fuzzy con threshold de 0.6
+- Fuzzy con threshold de 0.6  
 (pyhton) Nuc-PWM.py [nombre_archivo.fasta] -f 0.6 [output]  
 
-- PWM con orientacion vertical
+- PWM con orientacion vertical  
 (python3) Nuc_PWM.py [nombre_arhivo.raw] -p -h [output]  
 
 Change Log  
@@ -39,3 +39,6 @@ V3 (10/3)
 Se agregaron las funciones asociadas a la creacion de un archico tipo fuzzy  
 Se modificó el flujo del programa para poder aceptar las dos opciones, y poder recibir todo en una linea del terminal a diferencia de requerir inputs posteriores a correr el script.
 Queda a analisis de su uso, correción de posibles errores de programación y encapsulamiento de errores de usuario.  
+
+V3.1 (10/3)  
+Modificaciónes de formato y de readme  
