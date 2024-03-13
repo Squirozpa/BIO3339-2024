@@ -42,3 +42,6 @@ Queda a analisis de su uso, correción de posibles errores de programación y en
 
 V3.1 (10/3)  
 Modificaciónes de formato y de readme  
+
+V3.2 (12/3)
+Se agregó docstring a todos las funciones
