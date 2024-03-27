@@ -28,7 +28,7 @@ def open_file(file_path: str) -> list:
     return nts_list
 
 
-def counter(nts_distribution: list) -> list[dict]:
+def counter(nts_list: list) -> list[dict]:
     """Function that creates a list of dictionaries, that contains the count of nucleotides per position
 
     Args:
@@ -39,8 +39,8 @@ def counter(nts_distribution: list) -> list[dict]:
     """
 
     nts_distribution = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
-                        for n in range(len(nts_distribution[0]))]
-    for line in nts_distribution:
+                        for n in range(len(nts_list[0]))]
+    for line in nts_list:
         # for each "sequence" (line)
         for i in range(len(line)):
             # for every position, adds a count to the corresponding nts of that position
@@ -93,7 +93,7 @@ def saver(save_string: str, file_name: str) -> str:
         str: File name
     """
 
-    file = open(f"{file_name}.txt", "w")
+    file = open(f"Output_files/{file_name}", "w")
     file.write(save_string)
     return file_name
 
@@ -130,7 +130,9 @@ def degen_iupac(nts: list) -> str:
     Returns:
         str: A single letter of the corresponding degenerate IUPAC nomencalture
     """
-    if len(nts) == 2:
+    if len(nts) == 1:
+        return nts[0]
+    elif len(nts) == 2:
         if "A" in nts:
             if "T" in nts:
                 return "W"
@@ -159,53 +161,120 @@ def degen_iupac(nts: list) -> str:
             return "B"
 
 
-def fuzzy(nts_freq: list[dict], threshold: str) -> str:
-    """Function that uses the nts relative frequency and returns a str of the Fuzzy type nts, per position
+def ambigous_list(nts_freq: list[dict], threshold: str) -> list:
+    """Function that uses the nts relative frequency and returns a list of the ambigous nts, per position
 
     Args:
         nts_freq (list[dict]): List of the relative frequency per position and nts
         threshold (str): Threshold to be considered when selecting posible nts
 
     Returns:
-        str: String of the fuzzy type nucleotides per position
+        list[list]: List containing lists of possible nucloteotides per position 
     """
     threshold = float(threshold)
-    up_treshold = threshold
-    mid_treshold = threshold/2
-    low_treshold = threshold/3
-    header = f"PO    {'  '.join(map(str, range(1, len(nts_freq) + 1)))}\n"
-    nts_line = f"NTS"
+    nts_list = []
+
     for pos in nts_freq:
-        # creates a list with only the nts above a threshold
-        list_up = list(filter(lambda x: pos[x] > up_treshold, pos.keys()))
-        if len(list_up) == 1:
-            # adds it because its an absolute nts
-            nts_line += f"  {list_up[0]}"
+        # Absolute nt
+        # One item above the threshold and all other are bellow 0.2
+        possible = filter(lambda nts: nts[1] > threshold and all(
+            freq < 0.2 for key, freq in pos.items() if key != nts[0]), pos.items())
+        nts = list(possible)
+        if nts:
+            nts_list.append([nts[0][0]])
 
         else:
-            # creates a list with only nts above half threshold
-            list_mid = list(
-                filter(lambda x: pos[x] > mid_treshold, pos.keys()))
-            # if theres 2 then adds the fuzzy for those 2
-            if len(list_mid) == 2:
-                nts_line += f"  {degen_iupac(list_mid)}"
+            # 2 possible nts
+            # if the condition above is not fulfilled
+            # if one is above 62.5% and 2 of the rest are bellow 20%
+            possible_above_threshold = filter(
+                lambda nts: nts[1] > 0.625, pos.items())
+            possible_inbetween_threshold = filter(
+                lambda nts: 0.625 > nts[1] < 0.2, pos.items())
+            above = list(possible_above_threshold)
+            between = list(possible_inbetween_threshold)
+            if len(above) == 1 and len(between) == 1:
+                nts_list.append([above[0][0], between[0][0]])
 
             else:
-                # list with only thrid of threshold
-                list_low = list(
-                    filter(lambda x: pos[x] > low_treshold, pos.keys()))
-                # if theres 3 then adds the fuzzy for those 3
-                if len(list_low) == 3:
-                    nts_line += f"  {degen_iupac(list_low)}"
-
-                # if nothing is above the threshold then adds an N
+                # 3 of possible nts
+                # 1 is between 40 and 60%
+                # 2the rest are above 20%
+                possible_inbetween_threshold = filter(
+                    lambda nts: 0.4 < nts[1] < 0.625, pos.items())
+                possible_above_threshold = filter(
+                    lambda nts: nts[1] > 0.2, pos.items())
+                inbetween = list(possible_inbetween_threshold)
+                above = list(possible_above_threshold)
+                if len(above) == 2 and len(inbetween) == 1:
+                    nts_list.append(
+                        [above[0][0], above[1][0], inbetween[0][0]])
                 else:
-                    nts_line += "  N"
+                    nts_list.append(['N'])
+    return nts_list
+
+
+def fuzzy_str(nts_list_ambigous) -> str:
+    header = f"PO    {'  '.join(map(str, range(1, len(nts_list_ambigous) + 1)))}\n"
+    nts_line = f"NTS"
+    for pos in nts_list_ambigous:
+        print(pos)
+        nts = degen_iupac(pos)
+        nts_line += f" {nts}"
+
     return header + nts_line
 
 
+def regex_generator(sequence: list, max_mismatch: str):
+    ### TO DO####
+    # see the possibility of doing an alignment with regex and test if uses less pc
+    regex_pattern = ""
+    for pos in sequence:
+        pos_pattern = ""
+        for nucleotide_group in pos:
+            if nucleotide_group == 'N':
+                pos_pattern += '[ACGT]'
+            else:
+                pos_pattern += '[' + ''.join(nucleotide_group) + ']'
+        regex_pattern += '(' + pos_pattern + ')' + \
+            '{,' + str(max_mismatch) + '}'
+    return regex_pattern
+
+
+def alignment_brute(sequence: list, max_mismatch, target: str) -> list:
+    """_summary_
+
+    Args:
+        sequence (list): _description_
+        max_mismatch (_type_): _description_
+        target (str): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    succesfull_alignment = []
+    max_mismatch = int(max_mismatch)
+    for start in range(len(target)-len(sequence)):
+        mismatch = 0
+        excess = False
+        print(start)
+        for pos in range(len(sequence)):
+            if sequence[pos][0] != 'N':
+                if target[start+pos] not in sequence[pos]:
+
+                    mismatch += 1
+                    print(f"{target[start+pos]} {sequence[pos]}")
+                    if mismatch > max_mismatch:
+                        excess = True
+                        break
+        if excess == False:
+            succesfull_alignment.append(start)
+
+    return succesfull_alignment
+
+
 if __name__ == "__main__":
-    path_folder = os.path.dirname(__file__)
+    path_folder = "Input_files"
     try:
         file_name = sys.argv[1]
         analyze_marker = sys.argv[2]
@@ -215,7 +284,11 @@ if __name__ == "__main__":
         elif analyze_marker == "-p":
             orient_marker = sys.argv[3]
             file_outputname = sys.argv[4]
-
+        elif analyze_marker == "-a":
+            fuzzy_threshold = sys.argv[3]
+            file_analyze = sys.argv[4]
+            mismatch = sys.argv[5]
+            file_outputname = sys.argv[6]
     except IndexError:
         print(
             "Please run the script with the name of the file to analyze, with the marker for PWM or fuzzy or both (-p/-f), \
@@ -235,13 +308,26 @@ as the script, refer to the readme for more info")
     if analyze_marker == "-p":
         if orient_marker == "-v" or orient_marker == "-h":
             output = pwmer(counted, orient_marker)
+            freq = frecuency(counted)
+            output2 = pwmer(freq, orient_marker)
 
     elif analyze_marker == "-f":
         freq = frecuency(counted)
-        output = fuzzy(freq, fuzzy_threshold)
+        ambigous = ambigous_list(freq, fuzzy_threshold)
+        output = fuzzy_str(ambigous)
 
+    elif analyze_marker == "-a":
+        freq = frecuency(counted)
+        ambigous = ambigous_list(freq, fuzzy_threshold)
+        analyze_path = os.path.join(path_folder, file_analyze)
+        analyzed = open_file(analyze_path)
+        analyzed = str(analyzed[0])
+        aligned = alignment_brute(ambigous, mismatch, analyzed)
+        output = str(aligned)
     else:
         print("Please use -p or -f for PWM or Fuzzy output")
 
-    name = saver(output, file_outputname)
-    print(f"Succesfully created {name}.txt")
+    name = saver(output, f"{file_outputname}.abs")
+    # if output2:
+    #    saver(output2, f"{file_outputname}.rel")
+    print(f"Succesfully created {name}")
