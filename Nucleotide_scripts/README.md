@@ -23,6 +23,12 @@ Ejemplos:
 
 ## Change Log  
 
+V4.1.0 (2/4)
+
+- Se agregan las funciones condensadas para cada funcion del script
+- Se agrega la funcion para PWM
+- Se agregan las funciones para el scoring de PWM y rel
+
 V4.0.1 (27/3)
 
 - Se agregó Función para aliniamiento
