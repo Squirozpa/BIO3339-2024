@@ -2,7 +2,7 @@
 import math
 
 
-def counter(nts_list: list) -> list[dict]:
+def pfm(nts_list: list) -> list[dict]:
     """Function that creates a list of dictionaries, that contains the count of nucleotides per position
 
     Args:
@@ -22,41 +22,7 @@ def counter(nts_list: list) -> list[dict]:
     return nts_distribution
 
 
-def pwmer(nts_list: list[dict]) -> str:
-    """Function to return the Position Weight Matrix from the list of nucleotide count
-
-    Args:
-        nts_distribution (list[dict]): List of the count of nts per position
-        marker (str): Marker to output in vertical or horizontal (-v/-h) ###marker use is discontinued
-
-    Returns:
-        str: A string of the PWM
-    """
-
-    nts_headers = ["A", "C", "G", "T"]
-    final = f"PO    {'  '.join(map(str, range(1, len(nts_list) + 1)))}\n"
-    for nts in range(4):
-        # to traverse 4 times one for each nts
-        nts_check = nts_headers.pop(0)
-        line = f"{nts_check}    "
-        for position in range(len(nts_list)):
-            line += f"{str(nts_list[position][nts_check])}    "
-        final += f"{line}\n"
-    """
-    elif marker.lower() == "-v":
-        final = "PO    A    C    G   T\n"
-        for posicion in range(len(nts_list)):
-            line = f"{str(posicion + 1)}    {nts_list[posicion]['A']}    {nts_list[posicion]['C']}    {nts_list[posicion]['G']}    {nts_list[posicion]['T']}"
-            final += f"{line}\n"
-    """
-    """else:
-        print("Please use a single letter V/H for vertical or horizontal ")
-        return pwmer(nts_list)
-    """
-    return final
-
-
-def frequency(nts_list: list) -> list[dict]:
+def ppm(nts_list: list) -> list[dict]:
     """Function to calculate the relative frequency of each nts per position
 
     Args:
@@ -79,7 +45,7 @@ def frequency(nts_list: list) -> list[dict]:
     return nts_freq
 
 
-def weight(nts_freq: list[dict]) -> list[dict]:
+def pwm(nts_freq: list[dict]) -> list[dict]:
     """Function to calculate the weight of each nts per position
 
     Args:
@@ -90,7 +56,7 @@ def weight(nts_freq: list[dict]) -> list[dict]:
     """
     nts_weight = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
                   for n in range(len(nts_freq))]
-    inf_values = 0.0000000001
+    inf_values = 0.8
     for sequence in range(len(nts_freq)):
         total = nts_freq[sequence]["A"] + nts_freq[sequence]["C"] + \
             nts_freq[sequence]["G"] + nts_freq[sequence]["T"]
@@ -178,3 +144,25 @@ def score_pwm(PWM: list[dict], sequence: str) -> list[list, float]:
         score += PWM[pos][sequence[pos]]
         score_list.append(score)
     return [score_list, score]
+
+
+def matrix_writer(nts_list: list[dict], max_score: float) -> str:
+    """Function to return the Position Weight Matrix from the list of nucleotide count
+
+    Args:
+        nts_distribution (list[dict]): List of the count of nts per position
+        marker (str): Marker to output in vertical or horizontal (-v/-h) ###marker use is discontinued
+
+    Returns:
+        str: A string of the PWM
+    """
+    nts_headers = ["A", "C", "G", "T"]
+    final = "PO\t" + "\t".join([str(i)
+                                for i in range(1, len(nts_list) + 1)]) + "\n"
+    for headers in nts_headers:
+        line = headers + "\t"
+        for pos in range(len(nts_list)):
+            line += str(nts_list[pos][headers]) + "\t"
+        final += line + "\n"
+
+    return final

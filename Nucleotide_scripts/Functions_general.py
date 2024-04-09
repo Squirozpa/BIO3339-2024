@@ -102,22 +102,34 @@ def pwm_generator(input_path: str, ouput_name: str) -> None:
     """
     raw_input_path = os.path.join(os.getcwd(), "Input_files", input_path)
     nts_list = open_fasta(raw_input_path)
-    list_count = pwm.counter(nts_list)
-    table_count = pwm.pwmer(list_count)
-    list_freq = pwm.frequency(list_count)
-    table_freq = pwm.pwmer(list_freq)
-    list_weight = pwm.weight(list_freq)
-    table_weight = pwm.pwmer(list_weight)
-    print(pwm.max_score_prm(list_freq))
-    print(pwm.max_score_pwm(list_weight))
-    saver(table_count, f"{ouput_name}.abs")
-    saver(table_freq, f"{ouput_name}.rel")
-    saver(table_weight, f"{ouput_name}.pwm")
+    list_count = pwm.pfm(nts_list)
+    table_count = pwm.matrix_writer(list_count, 0)
+    list_freq = pwm.ppm(list_count)
+    max_score_prm = pwm.max_score_pwm(list_freq)
+    table_freq = pwm.matrix_writer(list_freq, max_score_prm)
+    list_weight = pwm.pwm(list_freq)
+    max_score_pwm = pwm.max_score_pwm(list_weight)
+    table_weight = pwm.matrix_writer(list_weight, max_score_pwm)
+    saver(table_count, f"{ouput_name}_pfm.tab")
+    saver(table_freq, f"{ouput_name}_ppm.tab")
+    saver(table_weight, f"{ouput_name}_pwm.tab")
 
     return None
 
 
 def fuzzy_generator(input_path: str, ouput_name: str, treshold: str) -> None:
+    """
+    Generates a fuzzy string based on the input file.
+
+    Parameters:
+    input_path (str): The path to the input file.
+    ouput_name (str): The name of the output file.
+    treshold (str): The threshold value for determining ambiguous nucleotides.
+
+    Returns:
+    None
+    """
+
     freq_input_path = os.path.join(os.getcwd(), "Input_files", input_path)
     nts_freq = open_pwm(freq_input_path)
     ambigous_list = fuzzy.ambigous_nts(nts_freq, treshold)
@@ -125,8 +137,22 @@ def fuzzy_generator(input_path: str, ouput_name: str, treshold: str) -> None:
     ambigous_str = fuzzy.fuzzy_str(ambigous_list)
     saver(ambigous_str, f"{ouput_name}.fuzzy")
 
+    return None
+
 
 def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name: str, max_mismatch: str) -> None:
+    """
+    Generates an alignment using the given input sequence and target file.
+
+    Args:
+        input_path_seq (str): The name to the input sequence file.
+        input_path_target (str): The name to the target file.
+        ouput_name (str): The name of the output file.
+        max_mismatch (str): The maximum number of allowed mismatches.
+
+    Returns:
+        None
+    """
     fuzzy_input_path = os.path.join(os.getcwd(), "Input_files", input_path_seq)
     fuzzy_list = open_fuzzy(fuzzy_input_path)
     input_path_target = os.path.join(
@@ -138,15 +164,12 @@ def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name:
     saver(str(alignment), f"{ouput_name}.ali")
 
 
-pwm_generator(sys.argv[1], sys.argv[2])
-# fuzzy_generator(sys.argv[1], sys.argv[2], sys.argv[3])
-# alignment_generator(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
-raw_input_path = os.path.join(os.getcwd(), "Input_files", sys.argv[1])
-nts_list = open_fasta(raw_input_path)
-list_count = pwm.counter(nts_list)
-list_freq = pwm.frequency(list_count)
-list_weight = pwm.weight(list_freq)
-path_sequence = os.path.join(os.getcwd(), "Input_files", sys.argv[3])
-
-sequence = str(open_fasta(path_sequence)[0])
-print(pwm.score_pwm(list_weight, sequence))
+if __name__ == "__main__":
+    if sys.argv[1] == "pwm":
+        pwm_generator(sys.argv[2], sys.argv[3])
+    elif sys.argv[1] == "fuzzy":
+        fuzzy_generator(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == "alignment":
+        alignment_generator(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+    else:
+        print("Invalid function")
