@@ -135,7 +135,7 @@ def fuzzy_generator(input_path: str, ouput_name: str, treshold: str) -> None:
     ambigous_list = fuzzy.ambigous_nts(nts_freq, treshold)
     # ambigous_list = fuzzy.ambigous_list(nts_freq, treshold)
     ambigous_str = fuzzy.fuzzy_str(ambigous_list)
-    saver(ambigous_str, f"{ouput_name}.fuzzy")
+    saver(ambigous_str, f"{ouput_name}_fuzzy.tab")
 
     return None
 
@@ -161,9 +161,37 @@ def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name:
     max_mismatch = int(max_mismatch)
     alignment = ali.alignment_brute(
         target=target[0], sequence=fuzzy_list, max_mismatch=max_mismatch)
-    saver(str(alignment), f"{ouput_name}.ali")
+    saver(str(alignment), f"{ouput_name}_ali.tab")
+    
+    return None
+
+def energy_generator(prm_pwm_path: str, genome_path: str, prm_pwm_type: str, create_plot: bool = False) -> None:
+    """
+    Generates energy values based on the given prm/pwm and genome.
+
+    Args:
+        prm_pwm_path (str): The path to the prm/pwm file.
+        genome_path (str): The path to the genome file.
+        prm_pwm_type (str): The type of prm/pwm ('prm' or 'pwm').
+        create_plot (bool, optional): Whether to create a plot or not. Defaults to False.
+
+    Returns:
+        None
+    """
+    # Read prm/pwm file
+    prm_pwm_list = open_pwm(prm_pwm_path)
+
+    # Read genome file
+    genome_list = open_fasta(genome_path)
+
+    values = ali.genomic_energy_profile(matrix=prm_pwm_list, genome=genome_list[0], matrix_type=prm_pwm_type, plot_marker=create_plot)
 
 
+    # Save energy values to file
+    energy_string = '\t'.join(str(value) for value in values)
+    saver(energy_string, "energy_values.txt")
+
+    return None
 if __name__ == "__main__":
     if sys.argv[1] == "pwm":
         pwm_generator(sys.argv[2], sys.argv[3])
@@ -171,5 +199,7 @@ if __name__ == "__main__":
         fuzzy_generator(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "alignment":
         alignment_generator(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+    elif sys.argv[1] == "energy":
+        energy_generator(sys.argv[2], sys.argv[3], sys.argv[4], bool(sys.argv[5]))
     else:
         print("Invalid function")

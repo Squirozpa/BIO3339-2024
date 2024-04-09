@@ -1,5 +1,6 @@
 """Collection of functions associated with the alignment    
 """
+import sys
 
 
 def regex_generator(sequence: list, max_mismatch: str):
@@ -47,3 +48,26 @@ def alignment_brute(sequence: list, max_mismatch, target: str) -> list:
             succesfull_alignment.append(start)
 
     return succesfull_alignment
+
+def genomic_energy_profile(matrix: list[dict], genome: str, matrix_type: str, plot_marker = False):
+    energy_profile = []
+
+    import PWM.PositionWeightMatrix as pwm
+    for pos in range(len(genome)-len(matrix)):
+        sequence = genome[pos:pos+len(matrix)]
+        if matrix_type == "prm":
+            energy_profile.append(pwm.score_prm(sequence= sequence, PRM= matrix)[1])
+        elif matrix_type == "pwm":
+            energy_profile.append(pwm.score_pwm(sequence=sequence, PWM= matrix)[1])
+    
+    if plot_marker:
+        import matplotlib.pyplot as plt
+        fig, ax = plt.subplots()
+        ax.plot(energy_profile)
+        plt.show()
+    
+    return energy_profile
+
+if __name__ == "__main__":
+    print("This script is not meant to be run directly")
+    sys.exit(1)
