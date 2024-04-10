@@ -19,6 +19,10 @@ def pfm(nts_list: list) -> list[dict]:
         for i in range(len(line)):
             # for every position, adds a count to the corresponding nts of that position
             nts_distribution[i][line[i]] += 1
+    for line in nts_distribution:
+        for nt in line:
+            if line[nt] == 0:
+                line[nt] = 0.8
     return nts_distribution
 
 
@@ -78,7 +82,7 @@ def pwm(nts_freq: list[dict]) -> list[dict]:
     return nts_weight
 
 
-def max_score_prm(PRM: list[dict]) -> float:
+def max_score_ppm(PPM: list[dict]) -> float:
     """Function to calculate the max score of a sequence, given a Position Weight Matrix
 
     Args:
@@ -88,12 +92,12 @@ def max_score_prm(PRM: list[dict]) -> float:
         float: Max core of the sequence
     """
     max_score = 1
-    for item in PRM:
-        max_score *= max(item.values())
-    return max_score
+    for item in PPM:
+        max_score *= round(max(item.values()), 2)
+    return round(max_score, 2)
 
 
-def score_prm(PRM: list[dict], sequence: str) -> list[list, float]:
+def score_ppm(PPM: list[dict], sequence: str) -> list[list, float]:
     """Function to calculate the score of a sequence, given a Position Weight Matrix
 
     Args:
@@ -105,8 +109,8 @@ def score_prm(PRM: list[dict], sequence: str) -> list[list, float]:
     """
     score_list = []
     score = 1
-    for pos in range(len(PRM)):
-        score *= PRM[pos][sequence[pos]]
+    for pos in range(len(PPM)):
+        score *= round(PPM[pos][sequence[pos]], 2)
         score_list.append(score)
     return [score_list, score]
 
@@ -122,8 +126,8 @@ def max_score_pwm(PWM: list[dict]) -> float:
     """
     max_score = 0
     for item in PWM:
-        max_score += max(item.values())
-    return max_score
+        max_score += round(max(item.values()), 2)
+    return round(max_score, 2)
 
 
 def score_pwm(PWM: list[dict], sequence: str) -> list[list, float]:
@@ -139,9 +143,9 @@ def score_pwm(PWM: list[dict], sequence: str) -> list[list, float]:
     score_list = []
     score = 0
     for pos in range(len(PWM)):
-        score += PWM[pos][sequence[pos]]
+        score += round(PWM[pos][sequence[pos]], 2)
         score_list.append(score)
-    return [score_list, score]
+    return [score_list, round(score, 2)]
 
 
 def matrix_writer(nts_list: list[dict], max_score: float) -> str:
@@ -149,7 +153,8 @@ def matrix_writer(nts_list: list[dict], max_score: float) -> str:
 
     Args:
         nts_distribution (list[dict]): List of the count of nts per position
-        marker (str): Marker to output in vertical or horizontal (-v/-h) ###marker use is discontinued
+        ###marker use is discontinued
+        marker (str): Marker to output in vertical or horizontal (-v/-h)
 
     Returns:
         str: A string of the PWM

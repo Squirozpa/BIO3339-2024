@@ -1,6 +1,8 @@
-"""Collection of functions associated with the alignment    
+"""Collection of functions associated with the alignment
 """
 import sys
+import PWM.PositionWeightMatrix as pwm
+import matplotlib.pyplot as plt
 
 
 def regex_generator(sequence: list, max_mismatch: str):
@@ -30,7 +32,8 @@ def alignment_brute(sequence: list, max_mismatch, target: str) -> list:
     Returns:
         _type_: _description_
     """
-    succesfull_alignment = []
+    succesfull_alignment_wattson = []
+    succesfull_alignment_crick = []
     max_mismatch = int(max_mismatch)
     for start in range(len(target)-len(sequence)):
         mismatch = 0
@@ -38,54 +41,58 @@ def alignment_brute(sequence: list, max_mismatch, target: str) -> list:
         for pos in range(len(sequence)):
             if sequence[pos][0] != 'N':
                 if target[start+pos] not in sequence[pos]:
-
                     mismatch += 1
                     if mismatch > max_mismatch:
                         excess = True
                         break
         if excess == False:
-            succesfull_alignment.append(start)
+            succesfull_alignment_wattson.append(start)
+            succesfull_alignment_crick.append(
+                len(target) - start - len(sequence))
+    print(succesfull_alignment_crick, succesfull_alignment_wattson)
+    return succesfull_alignment_wattson, succesfull_alignment_crick
 
-    return succesfull_alignment
 
-
-def genomic_energy_profile(matrix: list[dict], genome: str, matrix_type: str, plot_marker=False):
+def genomic_energy_profile(matrix: list[dict], genome: str, matrix_type: str):
     energy_profile_wattson = []
     energy_profile_crick = []
-    import PWM.PositionWeightMatrix as pwm
     genome_to_reverse = genome
     reversed_genome = ''.join(str(x) for x in reversed(genome_to_reverse))
     for pos in range(len(genome)-len(matrix)):
         sequence = genome[pos:pos+len(matrix)]
         reversed_sequence = reversed_genome[pos:pos+len(matrix)]
-        if matrix_type == "prm":
-            energy_profile_wattson.append(pwm.score_prm(
-                sequence=sequence, PRM=matrix)[1])
-            energy_profile_crick.append(pwm.score_prm(
-                sequence=reversed_sequence, PRM=matrix)[1])
+        if matrix_type == "ppm":
+            score = pwm.score_ppm(
+                sequence=sequence, PPM=matrix)[1]
+            max_score = pwm.max_score_ppm(matrix)
+            energy_profile_wattson.append(score/max_score)
+            energy_profile_crick.append(pwm.score_ppm(
+                sequence=reversed_sequence, PPM=matrix)[1])
         elif matrix_type == "pwm":
-            energy_profile_wattson.append(pwm.score_pwm(
-                sequence=sequence, PWM=matrix)[1])
+            score = pwm.score_pwm(sequence=sequence, PWM=matrix)[1]
+            max_score = pwm.max_score_pwm(matrix)
+            energy_profile_wattson.append(score/max_score)
             energy_profile_crick.append(pwm.score_pwm(
                 sequence=reversed_sequence, PWM=matrix)[1])
+        else:  # if the matrix type is not specified
+            print("Matrix type not specified")
+            return None
 
-    if plot_marker:
-        import matplotlib.pyplot as plt
-        fig, ax = plt.subplots()
-        fig, bx = plt.subplots()
-        ax.plot(energy_profile_wattson, label="Energy profile Wattson")
-        bx.plot(energy_profile_crick, label="Energy profile Crick")
+    fig, ax = plt.subplots()
+    fig, bx = plt.subplots()
+    ax.plot(energy_profile_wattson, label="Energy profile Wattson")
+    bx.plot(energy_profile_crick, label="Energy profile Crick")
 
-        # Add title and labels
-        ax.set_title('Energy Profile Wattson')
-        ax.set_xlabel('Position')
-        ax.set_ylabel('Energy')
+    # Add title and labels
+    ax.set_title('Energy Profile Wattson')
+    ax.set_xlabel('Position')
+    ax.set_ylabel('Energy')
 
-        bx.set_title('Energy Profile Crick')
-        bx.set_xlabel('Position')
-        bx.set_ylabel('Energy')
+    bx.set_title('Energy Profile Crick')
+    bx.set_xlabel('Position')
+    bx.set_ylabel('Energy')
 
-        plt.show()
+    plt.show()
 
     return energy_profile_wattson, energy_profile_crick
 
