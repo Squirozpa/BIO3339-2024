@@ -120,7 +120,7 @@ def ambigous_list(nts_freq: list[dict], threshold: str) -> list:
     return nts_list
 
 
-def fuzzy_str(nts_list_ambigous) -> str:
+def fuzzy_str(nts_list_ambigous, threshold) -> str:
     """Converts the list the the string type for the fuzzy type sequence
 
     Args:
@@ -129,10 +129,12 @@ def fuzzy_str(nts_list_ambigous) -> str:
     Returns:
         str: A 2 line string for saving the Fuzzy type sequence
     """
-    header = f"PO    {'  '.join(map(str, range(1, len(nts_list_ambigous) + 1)))}\n"
+    header = "PO\t" + \
+        "\t".join(map(str, range(1, len(nts_list_ambigous) + 1))) + "\n"
     nts_line = f"NTS"
     for pos in nts_list_ambigous:
         nts = degen_iupac(pos)
-        nts_line += f" {nts}"
+        nts_line += "\t" + nts
+    nts_line += "\n"+f"#threshold: {threshold}"
 
     return header + nts_line

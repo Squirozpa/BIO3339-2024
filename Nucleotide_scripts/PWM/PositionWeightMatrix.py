@@ -56,10 +56,8 @@ def pwm(nts_freq: list[dict]) -> list[dict]:
     """
     nts_weight = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
                   for n in range(len(nts_freq))]
-    inf_values = 0.8
+    inf_values = 0.1
     for sequence in range(len(nts_freq)):
-        total = nts_freq[sequence]["A"] + nts_freq[sequence]["C"] + \
-            nts_freq[sequence]["G"] + nts_freq[sequence]["T"]
         if nts_freq[sequence]["A"] == 0:
             nts_freq[sequence]["A"] = inf_values
         if nts_freq[sequence]["C"] == 0:
@@ -162,7 +160,10 @@ def matrix_writer(nts_list: list[dict], max_score: float) -> str:
     for headers in nts_headers:
         line = headers + "\t"
         for pos in range(len(nts_list)):
-            line += str(nts_list[pos][headers]) + "\t"
+            line += str(nts_list[pos][headers])
+            if pos != len(nts_list) - 1:
+                line += "\t"
         final += line + "\n"
+    final += "#" + str(max_score) + "\n"
 
     return final

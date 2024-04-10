@@ -50,7 +50,7 @@ def open_pwm(file_path: str) -> list[dict]:
         if line.startswith("PO"):
             pass
         else:
-            line = line.split()[1:]
+            line = line.split("\t")[1:]
             file_lines.append(line)
     freq_list = [{'A': 0, 'C': 0, 'G': 0, 'T': 0}
                  for n in range(len(file_lines[0]))]
@@ -59,6 +59,7 @@ def open_pwm(file_path: str) -> list[dict]:
         freq_list[pos]["C"] = float(file_lines[1][pos])
         freq_list[pos]["G"] = float(file_lines[2][pos])
         freq_list[pos]["T"] = float(file_lines[3][pos])
+
     return freq_list
 
 
@@ -72,8 +73,9 @@ def open_fuzzy(file_path: str) -> list:
 
     file = open(file_path, "r")
     lines_file = file.read().splitlines(False)
+    print(lines_file)
     file.close()
-    fuzzy_list = lines_file[1].split()[1:]
+    fuzzy_list = lines_file[1].split("\t")[1:]
     return fuzzy_list
 
 
@@ -134,7 +136,7 @@ def fuzzy_generator(input_path: str, ouput_name: str, treshold: str) -> None:
     nts_freq = open_pwm(freq_input_path)
     ambigous_list = fuzzy.ambigous_nts(nts_freq, treshold)
     # ambigous_list = fuzzy.ambigous_list(nts_freq, treshold)
-    ambigous_str = fuzzy.fuzzy_str(ambigous_list)
+    ambigous_str = fuzzy.fuzzy_str(ambigous_list, treshold)
     saver(ambigous_str, f"{ouput_name}_fuzzy.tab")
 
     return None
@@ -162,8 +164,9 @@ def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name:
     alignment = ali.alignment_brute(
         target=target[0], sequence=fuzzy_list, max_mismatch=max_mismatch)
     saver(str(alignment), f"{ouput_name}_ali.tab")
-    
+
     return None
+
 
 def energy_generator(prm_pwm_path: str, genome_path: str, prm_pwm_type: str, create_plot: bool = False) -> None:
     """
@@ -179,27 +182,38 @@ def energy_generator(prm_pwm_path: str, genome_path: str, prm_pwm_type: str, cre
         None
     """
     # Read prm/pwm file
+    prm_pwm_path = os.path.join(os.getcwd(), "Input_files", prm_pwm_path)
     prm_pwm_list = open_pwm(prm_pwm_path)
 
     # Read genome file
+    genome_path = os.path.join(os.getcwd(), "Input_files", genome_path)
     genome_list = open_fasta(genome_path)
 
-    values = ali.genomic_energy_profile(matrix=prm_pwm_list, genome=genome_list[0], matrix_type=prm_pwm_type, plot_marker=create_plot)
-
+    # get the energy values
+    values = ali.genomic_energy_profile(
+        matrix=prm_pwm_list, genome=genome_list[0], matrix_type=prm_pwm_type, plot_marker=create_plot)
 
     # Save energy values to file
     energy_string = '\t'.join(str(value) for value in values)
     saver(energy_string, "energy_values.txt")
 
     return None
+
+
 if __name__ == "__main__":
+    # try:
     if sys.argv[1] == "pwm":
         pwm_generator(sys.argv[2], sys.argv[3])
     elif sys.argv[1] == "fuzzy":
         fuzzy_generator(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "alignment":
-        alignment_generator(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+        alignment_generator(
+            sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
     elif sys.argv[1] == "energy":
-        energy_generator(sys.argv[2], sys.argv[3], sys.argv[4], bool(sys.argv[5]))
+        energy_generator(sys.argv[2], sys.argv[3],
+                         sys.argv[4], bool(sys.argv[5]))
     else:
         print("Invalid function")
+    # except IndexError:
+    # print("Invalid arguments, please refer to the README for more information")
+    sys.exit(1)
