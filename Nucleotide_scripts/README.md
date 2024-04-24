@@ -3,25 +3,66 @@
 Script creado por Sebastian Quiroz para Pontificia Universidad Católica de Chile  
 Contacto. <squirozpa@uc.cl>
 
-Utilizacion:  
-Correr el archivo principal Nuc-PWM.py en una carpeta con el archivo de nucleotidos a procesar, puede estar en formato fasta o raw en la forma:  
-El script recibe 4 argumentos  
+## Utilizacion
 
-1. Primero el nombre del arhivo de nucleotidos tanto en fasta como raw  
-2. Segundo el tipo de analisis que se busca hacer: -f para fuzzy y -p para PWM  
-3. Tercero, dependiendo de si se requiere fuzzy o PWM. Para fuzzy se requiere entregar el valor the threshold para el analisis en formato de frequencia relativa (0-0.99)
-si es PWM se requiere entregar la orientacion del output file -h para horizontal y -v para vertical  
-4. Cuarto el nombre del arhico a guardar, se entrega en un formato txt, no agregar extensión ni espacios.  
+El script tiene diferentes funciones, pero para todas es necesario estar en la carpeta inicial del script (Carpeta total del repositorio)
+El script contiene 4 funciones principales, las cuales son:
+    - PWM(genera un PFM, PRM y PWM a partir de un archivo fasta o raw de un msa)
+    - Fuzzy(genera un sequencia fuzzy a partir de la tabla PPM o PRM, de la funcion anterior y un threshold)
+    - Alignment(busca un aliniamiento a partir de un fuzzy (o sequencia normal), una secuencia target y un maximo mismatch, y entrega un arhivo con los aliniamientos encontrados y su mismatch)
+    - Energy profile (genera un perfil de energia a partir de un PWM y una secuencia target, entrega un archivo y un grafico con la energia de cada posicion de la secuencia target)
 
-Ejemplos:  
+Estos scripts toman los archivos de la carpeta input_files y los entrega en output_files, si se desea utilizar un archivo desde el output_files, se debe agregar = antes de el "path" que deberia tomar como input.
 
-- Fuzzy con threshold de 0.6  
-(pyhton) Nuc-PWM.py [nombre_archivo.fasta] -f 0.6 [output]  
+Guias de comandos:
+() = argumento absoluto
+[] = argumento relativo. ej paths de archivos, nombres del output
 
-- PWM con orientacion vertical  
-(python3) Nuc_PWM.py [nombre_arhivo.raw] -p -h [output]  
+### PWM
 
-## Change Log  
+Para generar un PWM se debe correr el script con el siguiente comando:
+
+Functions_general.py (PWM) [path del archivo fasta o raw] [nombre del output]
+
+### Fuzzy
+
+Para generar un fuzzy se debe correr el script con el siguiente comando:
+
+Functions_general.py (Fuzzy) [path del archivo PRM] [threshold] [nombre del output]
+
+### Alignment
+
+Para generar un alineamiento se debe correr el script con el siguiente comando:
+
+Functions_general.py (Alignment) [path del archivo fasta o raw] [path del archivo fasta o raw target] [nombre del output] [maximo mismatch]
+
+### Energy profile
+
+Para generar un perfil de energia se debe correr el script con el siguiente comando:
+
+Functions_general.py (Energy_profile) [path del archivo PWM o PRM] [PRM/PWM] [path del archivo fasta o raw target] [nombre del output]
+
+#### Change Log
+
+V4.2.3 (23/4)
+
+- Se consolidan las funciones, se encapsulan un par de errores y donde solucionarlos
+- La funcion de aliniamineto entrega un archivo ordenado por cantidad de mismatches
+- Se modifica el algoritmo de fuzzy donde el treshold ahora reprenta el porcentaje entre que el nyucleotido no sea menos que aleatorio y bsu maximo para cada condición
+
+V4.2.2 (10/4)
+
+- Se modofica la funcion de energia para poder entregar un grafico
+
+V4.2.1 (9/4)
+
+- Se agrega la funcion para generar un perfil de energia a partir de un PWM y una secuencia target
+
+V4.2.0 (5/4)
+
+- Se cambian las funciones para entregar archivos en .tab
+- Se agrega el score de la PRM y PWM
+- Se agrega un alinimianto para la reversa de la secuencia target
 
 V4.1.0 (2/4)
 

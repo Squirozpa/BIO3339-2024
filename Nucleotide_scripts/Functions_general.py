@@ -4,6 +4,7 @@ Script designed to recieve any length nucleotidic data, and create a file of PWM
 
 import sys
 import os
+from collections import defaultdict
 
 import Fuzzy.FuzzyTypeSeq as fuzzy
 import PWM.PositionWeightMatrix as pwm
@@ -73,7 +74,6 @@ def open_fuzzy(file_path: str) -> list:
 
     file = open(file_path, "r")
     lines_file = file.read().splitlines(False)
-    print(lines_file)
     file.close()
     fuzzy_list = lines_file[1].split("\t")[1:]
     return fuzzy_list
@@ -149,6 +149,26 @@ def fuzzy_generator(input_path: str, ouput_name: str, treshold: str) -> None:
     return None
 
 
+def save_alignment(alignment, output_name):
+    sting_to_save = "Alignment Wattson:\n"
+    grouped_alignments = defaultdict(list)
+    for position, mismatches in alignment[0].items():
+        grouped_alignments[mismatches].append(position)
+    for mismatches in sorted(grouped_alignments.keys()):
+        positions = ', '.join(map(str, sorted(grouped_alignments[mismatches])))
+        sting_to_save += f"Mismatches: {mismatches}, Positions: {positions}\n"
+    sting_to_save += "Alignment Crick:\n"
+    grouped_alignments = defaultdict(list)
+    for position, mismatches in alignment[1].items():
+        grouped_alignments[mismatches].append(position)
+    for mismatches in sorted(grouped_alignments.keys()):
+        positions = ', '.join(map(str, sorted(grouped_alignments[mismatches])))
+        sting_to_save += f"Mismatches: {mismatches}, Positions: {positions}\n"
+    with open(f"Output_files/{output_name}_ali.tab", "w") as file:
+        file.write(sting_to_save)
+    return None
+
+
 def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name: str, max_mismatch: str) -> None:
     """
     Generates an alignment using the given input sequence and target file.
@@ -179,8 +199,7 @@ def alignment_generator(input_path_seq: str, input_path_target: str, ouput_name:
     max_mismatch = int(max_mismatch)
     alignment = ali.alignment_brute(
         target=target[0], sequence=fuzzy_list, max_mismatch=max_mismatch)
-    saver(str("Alignment wattson:\t" +
-          str(alignment[0])+"\n" + "Alignment Crick:\t" + str(alignment[0])), f"{ouput_name}_ali.tab")
+    save_alignment(alignment, ouput_name)
 
     return None
 

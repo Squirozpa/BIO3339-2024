@@ -56,68 +56,35 @@ def ambigous_nts(nts_freq: list[dict], threshold: str) -> list:
     threshold = float(threshold)
     list_ambigous_nts = []
     for pos in range(len(nts_freq)):
-        max_value = float(max(nts_freq[pos].values()))
+        nts_in_pos = []
 
-        effective_treshold = threshold*max_value
-        filtered = filter(
-            lambda nts: float(nts[1]) >= effective_treshold, nts_freq[pos].items())
-        to_append = dict(filtered)
-        list_ambigous_nts.append(list(to_append.keys()))
+        # Only 1 nts
+        for nts in nts_freq[pos]:
+            if nts_freq[pos][nts] >= (0.25 + threshold*(0.75)):
+                nts_in_pos.append(nts)
 
-    return list_ambigous_nts
+        if not nts_in_pos:
+            # 2 nts
+            for nts in nts_freq[pos]:
+                if nts_freq[pos][nts] >= (0.25 + threshold*(0.25)):
+                    nts_in_pos.append(nts)
+            if len(nts_in_pos) != 2:
+                nts_in_pos = []
 
+            # 3 nts
+        if not nts_in_pos:
+            for nts in nts_freq[pos]:
+                if nts_freq[pos][nts] >= (0.25 + threshold*(0.08)):
+                    nts_in_pos.append(nts)
 
-def ambigous_list(nts_freq: list[dict], threshold: str) -> list:
-    """Function that uses the nts relative frequency and returns a list of the ambigous nts, per position
-
-    Args:
-        nts_freq (list[dict]): List of the relative frequency per position and nts
-        threshold (str): Threshold to be considered when selecting posible nts
-
-    Returns:
-        list[list]: List containing lists of possible nucloteotides per position 
-    """
-    threshold = float(threshold)
-    nts_list = []
-
-    for pos in nts_freq:
-        # Absolute nt
-        # One item above the threshold and all other are bellow 0.2
-        possible = filter(lambda nts: nts[1] > threshold and all(
-            freq < 0.2 for key, freq in pos.items() if key != nts[0]), pos.items())
-        nts = list(possible)
-        if nts:
-            nts_list.append([nts[0][0]])
-
+            if len(nts_in_pos) != 3:
+                nts_in_pos = []
+        print(nts_in_pos)
+        if nts_in_pos:
+            list_ambigous_nts.append(degen_iupac(nts_in_pos))
         else:
-            # 2 possible nts
-            # if the condition above is not fulfilled
-            # if one is above 62.5% and 2 of the rest are bellow 20%
-            possible_above_threshold = filter(
-                lambda nts: nts[1] > 0.625, pos.items())
-            possible_inbetween_threshold = filter(
-                lambda nts: 0.625 > nts[1] < 0.2, pos.items())
-            above = list(possible_above_threshold)
-            between = list(possible_inbetween_threshold)
-            if len(above) == 1 and len(between) == 1:
-                nts_list.append([above[0][0], between[0][0]])
-
-            else:
-                # 3 of possible nts
-                # 1 is between 40 and 60%
-                # 2the rest are above 20%
-                possible_inbetween_threshold = filter(
-                    lambda nts: 0.4 < nts[1] < 0.625, pos.items())
-                possible_above_threshold = filter(
-                    lambda nts: nts[1] > 0.2, pos.items())
-                inbetween = list(possible_inbetween_threshold)
-                above = list(possible_above_threshold)
-                if len(above) == 2 and len(inbetween) == 1:
-                    nts_list.append(
-                        [above[0][0], above[1][0], inbetween[0][0]])
-                else:
-                    nts_list.append(['N'])
-    return nts_list
+            list_ambigous_nts.append("N")
+    return list_ambigous_nts
 
 
 def fuzzy_str(nts_list_ambigous, threshold) -> str:

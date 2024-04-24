@@ -32,25 +32,37 @@ def alignment_brute(sequence: list, max_mismatch, target: str) -> list:
     Returns:
         _type_: _description_
     """
-    succesfull_alignment_wattson = []
-    succesfull_alignment_crick = []
+    alignment_dict = {"A": "A", "C": "C", "G": "G", "T": "T", "R": "AG", "Y": "CT", "S": "CG",
+                      "W": "AT", "K": "GT", "M": "AC", "B": "CGT", "D": "AGT", "H": "ACT", "V": "ACG", "N": "ACGT"}
+    succesfull_alignment_wattson = {}
+    succesfull_alignment_crick = {}
     max_mismatch = int(max_mismatch)
-    for start in range(len(target)-len(sequence)):
+    for start in range(len(target)-len(sequence)+1):
         mismatch = 0
         excess = False
         for pos in range(len(sequence)):
             if sequence[pos][0] != 'N':
-                if target[start+pos] not in sequence[pos]:
+                if target[start+pos] not in alignment_dict[sequence[pos]]:
                     mismatch += 1
                     if mismatch > max_mismatch:
                         excess = True
                         break
         if excess == False:
-            succesfull_alignment_wattson.append(start)
-            succesfull_alignment_crick.append(
-                len(target) - start - len(sequence))
-    print(succesfull_alignment_crick, succesfull_alignment_wattson)
-    return succesfull_alignment_wattson, succesfull_alignment_crick
+            succesfull_alignment_wattson[start+1] = mismatch
+    reversed_target = target[::-1]
+    for start in range(len(target)-len(sequence)+1):
+        mismatch = 0
+        excess = False
+        for pos in range(len(sequence)):
+            if sequence[pos][0] != 'N':
+                if reversed_target[start+pos] not in alignment_dict[sequence[pos]]:
+                    mismatch += 1
+                    if mismatch > max_mismatch:
+                        excess = True
+                        break
+        if excess == False:
+            succesfull_alignment_crick[start+1] = mismatch
+    return [succesfull_alignment_wattson, succesfull_alignment_crick]
 
 
 def genomic_energy_profile(matrix: list[dict], genome: str, matrix_type: str):
