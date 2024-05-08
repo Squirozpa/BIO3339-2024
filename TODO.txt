@@ -1,5 +1,0 @@
--Genomic Energy profile ambidiestra x
-max score en la pwm y prm x
-ver lo de ambigüedad  x
-mismatch the sequcnia difusa X
-tabs en las tablas x

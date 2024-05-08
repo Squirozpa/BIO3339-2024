@@ -1,0 +1,9 @@
+Alignment Wattson:
+Mismatches(2): [217, 777, 1121, 1248, 1544]
+Mismatches(1): [883]
+
+Alignment Crick:
+Mismatches(2): [1971, 359]
+Mismatches(1): [827]
+
+Max Mismatches: 2
