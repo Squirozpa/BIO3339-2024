@@ -54,7 +54,8 @@ Where:
 --max_mismatch: Maximum number of mismatches for the alignment (default is None).
 --normalized: If the energy values should be normalized or relative (default is 'normalized'). Options are 'normalized', 'relative', 'none'.
 --cut_off: Cut off value for the energy (default is None).
---no-reversed: If the energy values should not be calculated for the reverse sequence (default is True).
+--no-reversed: If the energy values should not be calculated for the reverse sequence.
+--only_reversed: If the energy values should only be calculated for the reverse sequence.
 --no-graph: If the energy graph should not be generated (default is True).
 --graph_length: Length of the graph for the energy profile (default is 400).
 ```
