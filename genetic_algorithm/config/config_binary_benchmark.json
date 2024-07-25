@@ -1,0 +1,14 @@
+{
+    "mutation_rate": 0.4,
+    "mutation_change": true,
+    "population_size": 1000,
+    "immigration_rate": 0.1,
+    "seed": 42,
+    "gene_pool_file": "_input_files/marboxes_27nts.fasta",
+    "gene_pool_type": "BinaryGenePool",
+    "vector_size": "None",
+    "fitness_strategy": "FitnessFunctionBinaryBenchmark",
+    "survivor_selection_strategy": "ElitismSurvivorSelection",
+    "crossover_strategy": "TwoPointCrossover",
+    "parent_selection_strategy": "RouletteWheelSelection"
+}

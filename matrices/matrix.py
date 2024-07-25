@@ -28,7 +28,7 @@ def genomic_count(sequence: str) -> dict:
     return genomic_frequency
 
 
-def absolute_matrix(alignment: list) -> pd.DataFrame:
+def absolute_matrix(alignment: tuple) -> pd.DataFrame:
     """Function that generates a absolute matrix from a multiple sequence alignment
 
     Args:
@@ -40,7 +40,6 @@ def absolute_matrix(alignment: list) -> pd.DataFrame:
 
     # Create an empty DataFrame with columns for each nucleotide
     abs_matrix = pd.DataFrame(columns=['A', 'C', 'G', 'T'])
-
     # For each position in the alignment
     for position in range(len(alignment[0])):
         # Get the nucleotide at this position in each sequence
@@ -55,7 +54,7 @@ def absolute_matrix(alignment: list) -> pd.DataFrame:
     return abs_matrix
 
 
-def relative_matrix(alignment: list, no_zeroes: bool = False) -> pd.DataFrame:
+def relative_matrix(alignment: tuple, no_zeroes: bool = False) -> pd.DataFrame:
     """Function that generates a relative matrix from a multiple sequence alignment
 
     Args:
@@ -108,7 +107,7 @@ def entropy_matrix(alignment: list) -> pd.DataFrame:
     return entropy_matrix
 
 
-def weight_matrix(alignment: list, genome_frequencey: dict = {"A": 0.25, "C": 0.25, "G": 0.25, "T": 0.25}) -> pd.DataFrame:
+def weight_matrix(alignment: tuple, genome_frequencey: dict = {"A": 0.25, "C": 0.25, "G": 0.25, "T": 0.25}) -> pd.DataFrame:
     """Function that generates a weight matrix from a multiple sequence alignment
 
     Args:

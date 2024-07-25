@@ -5,7 +5,7 @@ Functions to calculate the energy of an sequence in a sequence, from a matrix
 # Standard Library Imports
 import pandas as pd
 # Local Library Imports
-from matrix import scores as ms
+from matrices import scores as ms
 ####################################################################################################
 
 
@@ -60,15 +60,15 @@ def genomic_energy(matrix: pd.DataFrame, sequence: str, matrix_type: str = "weig
             raise ValueError(
                 "Normalization must be 'normalized', 'relative', or 'none'")
         # Iterate over the sequence and calculate the energy
-        for i in range(len(sequence)-len(matrix)+1):
+        for i in range(len(sequence) - len(matrix) + 1):
             # Calculates the energy of the sequence in that position
             if not only_reversed:
                 energy = ms.score_weight_matrix(
-                    sequence[i:i+len(matrix)], matrix)
+                    sequence[i:i + len(matrix)], matrix)
             # Also calculates the reversed energy if needed
             if reversed:
                 reverse_energy = ms.score_weight_matrix(
-                    reversed_sequence[i:i+len(matrix)], matrix)
+                    reversed_sequence[i:i + len(matrix)], matrix)
                 # If threshold is provided and energy is lower than threshold, set energy to threshold
                 if threshold is not None and reverse_energy < threshold:
                     reverse_energy = threshold
@@ -77,7 +77,7 @@ def genomic_energy(matrix: pd.DataFrame, sequence: str, matrix_type: str = "weig
                     reverse_energy = ms.relative_score(
                         min_score, max_score, reverse_energy)
                 elif normalized == "normalized":
-                    reverse_energy = reverse_energy/max_score
+                    reverse_energy = reverse_energy / max_score
                 elif normalized == "none":
                     pass
             # If threshold is provided and energy is lower than threshold, set energy to threshold
@@ -121,13 +121,13 @@ def genomic_energy(matrix: pd.DataFrame, sequence: str, matrix_type: str = "weig
             raise ValueError(
                 "Normalization must be 'normalized', 'relative', or 'none'")
         # Iterate over the sequence and calculate the energy
-        for i in range(len(sequence)-len(matrix)+1):
+        for i in range(len(sequence) - len(matrix) + 1):
             # Calculates the energy of the sequence in that position
-            energy = ms.score_weight_matrix(sequence[i:i+len(matrix)], matrix)
+            energy = ms.score_weight_matrix(sequence[i:i + len(matrix)], matrix)
             # Also calculates the reversed energy if needed
             if reversed:
                 reverse_energy = ms.score_weight_matrix(
-                    reversed_sequence[i:i+len(matrix)], matrix)
+                    reversed_sequence[i:i + len(matrix)], matrix)
                 # If threshold is provided and energy is lower than threshold, set energy to threshold
                 if threshold is not None and reverse_energy < threshold:
                     reverse_energy = threshold
@@ -136,7 +136,7 @@ def genomic_energy(matrix: pd.DataFrame, sequence: str, matrix_type: str = "weig
                     reverse_energy = ms.relative_score(
                         min_score, max_score, reverse_energy)
                 elif normalized == "normalized":
-                    reverse_energy = reverse_energy/max_score
+                    reverse_energy = reverse_energy / max_score
                 elif normalized == "none":
                     pass
             # If threshold is provided and energy is lower than threshold, set energy to threshold

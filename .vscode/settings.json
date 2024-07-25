@@ -1,0 +1,7 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "editor.rulers": [100],
+    "python.formatting.autopep8Args": ["--ignore=E999"],
+    "python.formatting.provider": "autopep8"
+}

@@ -1,0 +1,143 @@
+Population ID: 2632943058384, Size: 1000, Best Individual: Individual: 2202666636960, Fitness: 9195, Iteration 65, Iterations: 100,  Seed: 42, Total Fitness: 9094828
+Individual: 2202666636960, Fitness: 9195, Iteration 65
+ADDNDNAWRGCACWWWHTGYTAAAHWY
+Population ID: 1698800182496, Size: 1000, Best Individual: Individual: 2879836996000, Fitness: 9178, Iteration 80, Iterations: 100,  Seed: 42, Total Fitness: 9027648
+Individual: 2879836996000, Fitness: 9178, Iteration 80
+ARVDDDATRGCACWAWWTGYTAAAWWN
+Population ID: 1769530827184, Size: 1000, Best Individual: Individual: 2940370011296, Fitness: 9170, Iteration 70, Iterations: 100,  Seed: 42, Total Fitness: 9026537
+Individual: 2940370011296, Fitness: 9170, Iteration 70
+MRNTMWATGGCACKAWWTGYYAAAWTW
+Population ID: 1711062199536, Size: 1000, Best Individual: Individual: 2198787859632, Fitness: 9141, Iteration 66, Iterations: 100,  Seed: 42, Total Fitness: 8992711
+Individual: 2198787859632, Fitness: 9141, Iteration 66
+WDNNNVAHRGCACWAAHTGYTAAAWTY
+Population ID: 1465971028000, Size: 1000, Best Individual: Individual: 1929035488128, Fitness: 9082, Iteration 59, Iterations: 100,  Seed: 42, Total Fitness: 8973463
+Individual: 1929035488128, Fitness: 9082, Iteration 59
+HDHHNNAYRGCAYKWWWTGCYAAAHWB
+Population ID: 2490021589552, Size: 1000, Best Individual: Individual: 1892308709456, Fitness: 9038, Iteration 41, Iterations: 100,  Seed: 42, Total Fitness: 8759839
+Individual: 1892308709456, Fitness: 9038, Iteration 41
+HRRVVDATRGCACKAWHTGYTAAAHWY
+Population ID: 2634329676768, Size: 1000, Best Individual: Individual: 1940395987200, Fitness: 9038, Iteration 93, Iterations: 100,  Seed: 42, Total Fitness: 8970453
+Individual: 1940395987200, Fitness: 9038, Iteration 93
+RAVHVDAYRGCACDWWDWGCHAAAHDH
+Population ID: 2869030793248, Size: 1000, Best Individual: Individual: 1541545874528, Fitness: 9019, Iteration 35, Iterations: 100,  Seed: 42, Total Fitness: 8970147
+Individual: 1541545874528, Fitness: 9019, Iteration 35
+ARHMHVAYGGCACWAAWDGBYAAAWBY
+Population ID: 1985915531824, Size: 1000, Best Individual: Individual: 1985901768016, Fitness: 8970, Iteration 0, Iterations: 100,  Seed: 42, Total Fitness: 8970000
+Individual: 1985901768016, Fitness: 8970, Iteration 0
+NAVNHAATRGCACNAAWTGYTAAAMDY
+Population ID: 2268950150032, Size: 1000, Best Individual: Individual: 2268939526240, Fitness: 8970, Iteration 0, Iterations: 100,  Seed: 42, Total Fitness: 8970000
+Individual: 2268939526240, Fitness: 8970, Iteration 0
+WANNHAATRGCACWAWTTGYTAAAHWY
+Gene count 
+>thrL_27nts_sh2017
+: 2
+>LeuL_27nts_sh2017
+: 6
+>degP_27nts_sh2017
+: 2
+>map_27nts
+: 6
+>lacZ_27nts_sh2017
+: 3
+>acrAB_27nts
+: 5
+>pheP_27nts_sh2017
+: 5
+>nfsB_27nts
+: 4
+>fldA_27nts
+: 3
+>modE_27nts_sh2017
+: 3
+>acrZ_27nts
+: 1
+>ybiV_27nts_sh2017
+: 2
+>ybiV_27nts_sh2017_1
+: 3
+>ybjC_27nts_sh2017
+: 6
+>ybjC_27nts
+: 7
+>poxB_27nts
+: 8
+>pqiA_27nts
+: 5
+>mdtG_27nts
+: 7
+>ycgZ_27nts_sh2017
+: 8
+>ompW_27nts_cand1
+: 6
+>ompW_27nts_cand2
+: 5
+>acnA_27nts
+: 3
+>ribA_27nts
+: 7
+>fnr_27nts_sh2017
+: 3
+>aldA_27nts
+: 5
+>yncE_27nts
+: 7
+>yneO_27nts_sh2017
+: 4
+>fumC_27nts
+: 8
+>zwf_27nts
+: 3
+>yeeY_27nts_sh2017
+: 5
+>nfo_27nts
+: 4
+>micF_27nts
+: 8
+>inaA_27nts
+: 3
+>ypeC_27nts_sh2017
+: 2
+>yfeS_27nts_sh2017
+: 3
+>xseA_27nts_sh2017
+: 3
+>fldB_27nts
+: 6
+>mdaB_27nts
+: 5
+>tolC_27nts
+: 9
+>yhbV_27nts_sh2017
+: 4
+>yhbW_27nts
+: 2
+>yrbG_27nts_sh2017
+: 3
+>slp_27nts
+: 6
+>hdeA_27nts
+: 3
+>waaY_27nts
+: 5
+>yidQ_27nts_sh2017
+: 3
+>mnmG_27nts_sh2017
+: 2
+>yiiG_27nts_sh2017
+: 4
+>sodA_27nts
+: 7
+>fpr_27nts
+: 6
+>pgi_27nts
+: 5
+>yjcC_27nts_sh2017
+: 5
+>purA_27nts
+: 4
+>yjjQ_27nts_sh2017
+: 3
+>deoB_27nts_sh2017
+: 4
+>rob_27nts                                   
+: 5

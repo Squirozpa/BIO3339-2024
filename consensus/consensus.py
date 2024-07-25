@@ -19,7 +19,7 @@ def iupac_ambiguity(nucleotides: list) -> str:
     return iupac_dic.get(nucleotides_str)
 
 
-def consensus(matrix: pd.DataFrame, matrix_type: str = "weight", threshold: int = 0.5, prioritize_upper: bool = False) -> str:
+def consensus(matrix: pd.DataFrame, matrix_type: str = "weight", threshold: float = 0.5, prioritize_upper: bool = False) -> str:
     """Function that generates a consensus sequence from a weight or relative matrix
 
     Args:

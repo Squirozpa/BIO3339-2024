@@ -1,0 +1,13 @@
+{
+    "mutation_rate": 0.1,
+    "population_size": 1000,
+    "immigration_rate": 0.1,
+    "seed": 42,
+    "gene_pool_file": "None",
+    "gene_pool_type": "BinaryGenePool",
+    "vector_size": 25,
+    "fitness_strategy": "FitnessFunctionKnapsack",
+    "survivor_selection_strategy": "ElitismSurvivorSelection",
+    "crossover_strategy": "TwoPointCrossover",
+    "parent_selection_strategy": "RouletteWheelSelection"
+}

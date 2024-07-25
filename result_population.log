@@ -1,0 +1,165 @@
+2024-06-28 21:12:42,516 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_template'
+2024-06-28 21:12:42,516 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_template'
+2024-06-28 21:12:42,525 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_template'
+2024-06-28 21:12:42,526 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_template'
+2024-06-28 21:12:42,531 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_template'
+2024-06-30 15:35:23,807 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-06-30 15:35:23,829 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-06-30 15:35:23,835 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-06-30 15:35:23,842 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-06-30 15:35:23,847 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-06-30 15:35:23,852 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_knapsack'
+2024-07-17 11:42:32,358 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_binary.json'
+2024-07-17 11:42:32,358 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_binary.json'
+2024-07-17 11:42:32,367 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_binary.json'
+2024-07-17 11:42:32,367 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_binary.json'
+2024-07-17 11:42:32,372 - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'genetic_algorithm/config/config_binary.json'
+2024-07-17 13:11:57,408 - ERROR - Error initializing population: Population_0
+2024-07-17 13:11:57,411 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,420 - ERROR - Error initializing population: Population_1
+2024-07-17 13:11:57,421 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,432 - ERROR - Error initializing population: Population_2
+2024-07-17 13:11:57,433 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,442 - ERROR - Error initializing population: Population_3
+2024-07-17 13:11:57,444 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,444 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,453 - ERROR - Error initializing population: Population_5
+2024-07-17 13:11:57,454 - ERROR - Error initializing population: Population_6
+2024-07-17 13:11:57,454 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,455 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,465 - ERROR - Error initializing population: Population_7
+2024-07-17 13:11:57,465 - ERROR - Error initializing population: Population_8
+2024-07-17 13:11:57,466 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,466 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-17 13:11:57,475 - ERROR - Error initializing population: Population_9
+2024-07-17 13:11:57,476 - ERROR - mutation_change is True or False but mutation_rate_change is notimplemented
+2024-07-25 03:15:38,772 - ERROR - Error initializing population: Population_2
+2024-07-25 03:15:38,774 - ERROR - Error initializing population: Population_0
+2024-07-25 03:15:38,775 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,776 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,812 - ERROR - Error initializing population: Population_3
+2024-07-25 03:15:38,813 - ERROR - Error initializing population: Population_1
+2024-07-25 03:15:38,813 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,814 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,846 - ERROR - Error initializing population: Population_6
+2024-07-25 03:15:38,847 - ERROR - Error initializing population: Population_4
+2024-07-25 03:15:38,848 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,849 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,882 - ERROR - Error initializing population: Population_7
+2024-07-25 03:15:38,884 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,885 - ERROR - Error initializing population: Population_5
+2024-07-25 03:15:38,886 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,928 - ERROR - Error initializing population: Population_8
+2024-07-25 03:15:38,930 - ERROR - Benchmark not provided.
+2024-07-25 03:15:38,957 - ERROR - Error initializing population: Population_9
+2024-07-25 03:15:38,959 - ERROR - Benchmark not provided.
+2024-07-25 03:26:34,307 - ERROR - Error initializing population: Population_1
+2024-07-25 03:26:34,309 - ERROR - 'T'
+2024-07-25 03:26:34,324 - ERROR - Error initializing population: Population_0
+2024-07-25 03:26:34,329 - ERROR - 'T'
+2024-07-25 03:27:18,640 - ERROR - Error initializing population: Population_0
+2024-07-25 03:27:18,641 - ERROR - 'T'
+2024-07-25 03:27:18,701 - ERROR - Error initializing population: Population_1
+2024-07-25 03:27:18,703 - ERROR - 'T'
+2024-07-25 03:32:05,245 - ERROR - Error initializing population: Population_0
+2024-07-25 03:32:05,247 - ERROR - 'T'
+2024-07-25 03:32:05,276 - ERROR - Error initializing population: Population_1
+2024-07-25 03:32:05,280 - ERROR - 'T'
+2024-07-25 03:32:32,840 - ERROR - Error initializing population: Population_0
+2024-07-25 03:32:32,841 - ERROR - 'T'
+2024-07-25 03:32:32,855 - ERROR - Error initializing population: Population_1
+2024-07-25 03:32:32,857 - ERROR - 'T'
+2024-07-25 03:34:04,123 - ERROR - Error initializing population: Population_1
+2024-07-25 03:34:04,126 - ERROR - 'T'
+2024-07-25 03:34:04,147 - ERROR - Error initializing population: Population_0
+2024-07-25 03:34:04,149 - ERROR - 'T'
+2024-07-25 03:34:25,192 - ERROR - Error initializing population: Population_1
+2024-07-25 03:34:25,194 - ERROR - 'T'
+2024-07-25 03:34:25,219 - ERROR - Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\utils\instance_functions.py", line 67, in init_population
+    population = Population(
+                 ^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 38, in __init__
+    self._generate_initial_population()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 51, in _generate_initial_population
+    self._compute_fitness()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 58, in _compute_fitness
+    individual.fitness = self.strategies.fitness.fitness(individual.genes)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\abstract_classes\abstract_strategies.py", line 48, in fitness
+    fitness_value = self._fitness(gene_vector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 102, in _fitness
+    if self.alignment(consensus_sequence, self.benchmark[i][3][j:j + 27]):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 109, in alignment
+    if target[i] not in self.alignment_dict[sequence[i]]:
+                        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'T'
+
+2024-07-25 03:34:25,255 - ERROR - Error initializing population: Population_0
+2024-07-25 03:34:25,257 - ERROR - 'T'
+2024-07-25 03:34:25,284 - ERROR - Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\utils\instance_functions.py", line 67, in init_population
+    population = Population(
+                 ^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 38, in __init__
+    self._generate_initial_population()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 51, in _generate_initial_population
+    self._compute_fitness()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 58, in _compute_fitness
+    individual.fitness = self.strategies.fitness.fitness(individual.genes)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\abstract_classes\abstract_strategies.py", line 48, in fitness
+    fitness_value = self._fitness(gene_vector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 102, in _fitness
+    if self.alignment(consensus_sequence, self.benchmark[i][3][j:j + 27]):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 109, in alignment
+    if target[i] not in self.alignment_dict[sequence[i]]:
+                        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'T'
+
+2024-07-25 11:46:54,802 - ERROR - Error initializing population: Population_1
+2024-07-25 11:46:54,803 - ERROR - Error initializing population: Population_0
+2024-07-25 11:46:54,805 - ERROR - list indices must be integers or slices, not tuple
+2024-07-25 11:46:54,805 - ERROR - list indices must be integers or slices, not tuple
+2024-07-25 11:46:54,822 - ERROR - Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\utils\instance_functions.py", line 67, in init_population
+    population = Population(
+                 ^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 38, in __init__
+    self._generate_initial_population()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 51, in _generate_initial_population
+    self._compute_fitness()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 58, in _compute_fitness
+    individual.fitness = self.strategies.fitness.fitness(individual.genes)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\abstract_classes\abstract_strategies.py", line 48, in fitness
+    fitness_value = self._fitness(gene_vector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 99, in _fitness
+    for j in range(len(self.benchmark[i][3]) - 27):
+                       ~~~~~~~~~~~~~~^^^
+TypeError: list indices must be integers or slices, not tuple
+
+2024-07-25 11:46:54,822 - ERROR - Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\utils\instance_functions.py", line 67, in init_population
+    population = Population(
+                 ^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 38, in __init__
+    self._generate_initial_population()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 51, in _generate_initial_population
+    self._compute_fitness()
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\population_class.py", line 58, in _compute_fitness
+    individual.fitness = self.strategies.fitness.fitness(individual.genes)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\abstract_classes\abstract_strategies.py", line 48, in fitness
+    fitness_value = self._fitness(gene_vector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\\wsl.localhost\Ubuntu\home\kiroxo\BIO3339-2024\genetic_algorithm\concrete_strategies\fitness_strategies.py", line 99, in _fitness
+    for j in range(len(self.benchmark[i][3]) - 27):
+                       ~~~~~~~~~~~~~~^^^
+TypeError: list indices must be integers or slices, not tuple
+
