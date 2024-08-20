@@ -2114,3 +2114,7 @@ TypeError: list indices must be integers or slices, not tuple
 2024-07-25 13:43:54,776 - BENCHMARK - Evolution complete for Population ID: 2869030793248 in 2367.007850 seconds
 2024-07-25 13:44:09,830 - BENCHMARK - Evolution complete for Population ID: 1985915531824 in 2382.059917 seconds
 2024-07-25 13:44:10,059 - BENCHMARK - Evolution complete for Population ID: 2268950150032 in 2382.284371 seconds
+2024-08-18 22:06:13,089 - BENCHMARK - Running evolution for Population ID: 2441837160416 for 2 iterations
+2024-08-18 22:06:13,091 - BENCHMARK - Running evolution for Population ID: 2505248787392 for 2 iterations
+2024-08-18 22:06:22,417 - BENCHMARK - Evolution complete for Population ID: 2505248787392 in 9.325243 seconds
+2024-08-18 22:06:22,451 - BENCHMARK - Evolution complete for Population ID: 2441837160416 in 9.360424 seconds

@@ -17279,3 +17279,41 @@ ation_8
 2024-07-25 13:44:10,134 - INFO - Population ID: 2268950150032, Size: 1000, Best Individual: Individual: 2268939526240, Fitness: 8970, Iteration 0, Iterations: 100,  Seed: 42, Total Fitness: 8970000
 2024-07-25 13:44:10,135 - INFO - Individual: 2268939526240, Fitness: 8970, Iteration 0
 2024-07-25 13:44:10,136 - INFO - [0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
+2024-08-18 22:06:02,991 - INFO - Starting the genetic algorithm.
+2024-08-18 22:06:02,992 - DEBUG - Starting the multiprocessing manager
+2024-08-18 22:06:03,681 - DEBUG - Initializing the populations.
+2024-08-18 22:06:04,446 - DEBUG - Configuration loaded from genetic_algorithm/config/config_binary.json
+2024-08-18 22:06:04,451 - DEBUG - Initializing concrete population: Population_1
+2024-08-18 22:06:04,451 - DEBUG - Initializing Abstract Population with name Population_0
+2024-08-18 22:06:04,452 - DEBUG - Initializing Abstract Population with name Population_1
+2024-08-18 22:06:04,453 - DEBUG - Abstract population initialized with name Population_1
+2024-08-18 22:06:12,205 - DEBUG - Concrete population initialized: Population_0
+2024-08-18 22:06:12,205 - DEBUG - Population initialized: Population_0
+2024-08-18 22:06:12,268 - DEBUG - Concrete population initialized: Population_1
+2024-08-18 22:06:12,269 - DEBUG - Population initialized: Population_1
+2024-08-18 22:06:12,298 - DEBUG - Completed population initialization.
+2024-08-18 22:06:12,299 - DEBUG - Running the populations.
+2024-08-18 22:06:13,089 - INFO - Starting evolution for Population: 2441837160416
+2024-08-18 22:06:13,089 - BENCHMARK - Running evolution for Population ID: 2441837160416 for 2 iterations
+2024-08-18 22:06:13,090 - TOTAL_BENCHMARK - Starting iteration 0 for Population ID: 2441837160416
+2024-08-18 22:06:13,090 - INFO - Starting evolution for Population: 2505248787392
+2024-08-18 22:06:13,091 - BENCHMARK - Running evolution for Population ID: 2505248787392 for 2 iterations
+2024-08-18 22:06:13,092 - TOTAL_BENCHMARK - Starting iteration 0 for Population ID: 2505248787392
+2024-08-18 22:06:21,217 - DEBUG - Mutation rate has been changed to: 0.05
+2024-08-18 22:06:21,219 - TOTAL_BENCHMARK - Iteration complete for Population ID: 2505248787392 in 8.126243 seconds
+2024-08-18 22:06:21,219 - TOTAL_BENCHMARK - Starting iteration 1 for Population ID: 2505248787392
+2024-08-18 22:06:21,227 - DEBUG - Mutation rate has been changed to: 0.05
+2024-08-18 22:06:21,228 - TOTAL_BENCHMARK - Iteration complete for Population ID: 2441837160416 in 8.137357 seconds
+2024-08-18 22:06:21,229 - TOTAL_BENCHMARK - Starting iteration 1 for Population ID: 2441837160416
+2024-08-18 22:06:22,416 - DEBUG - Mutation rate has been changed to: 0.0
+2024-08-18 22:06:22,417 - TOTAL_BENCHMARK - Iteration complete for Population ID: 2505248787392 in 1.197914 seconds
+2024-08-18 22:06:22,417 - BENCHMARK - Evolution complete for Population ID: 2505248787392 in 9.325243 seconds
+2024-08-18 22:06:22,450 - DEBUG - Mutation rate has been changed to: 0.0
+2024-08-18 22:06:22,451 - TOTAL_BENCHMARK - Iteration complete for Population ID: 2441837160416 in 1.221986 seconds
+2024-08-18 22:06:22,451 - BENCHMARK - Evolution complete for Population ID: 2441837160416 in 9.360424 seconds
+2024-08-18 22:06:22,481 - INFO - Population ID: 2505248787392, Size: 1000, Best Individual: Individual: 2505255669392, Fitness: 38, Iteration 0, Iterations: 2,  Seed: 42, Total Fitness: 28513
+2024-08-18 22:06:22,482 - INFO - Individual: 2505255669392, Fitness: 38, Iteration 0
+2024-08-18 22:06:22,483 - INFO - [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+2024-08-18 22:06:22,483 - INFO - Population ID: 2441837160416, Size: 1000, Best Individual: Individual: 2441840042752, Fitness: 25, Iteration 0, Iterations: 2,  Seed: 42, Total Fitness: 16310
+2024-08-18 22:06:22,484 - INFO - Individual: 2441840042752, Fitness: 25, Iteration 0
+2024-08-18 22:06:22,484 - INFO - [0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]

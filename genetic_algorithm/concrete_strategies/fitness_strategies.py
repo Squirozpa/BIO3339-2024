@@ -98,7 +98,7 @@ class FitnessFunctionBinaryBenchmark(FitnessStrategy):
             for j in range(len(line[3]) - 27):
                 if j == line[2]:
                     if not self.alignment(line[3][j:j + 27], consensus_sequence):
-                        score -= 1
+                        score -= 27
                     else:
                         score += consensus_score
                 else:

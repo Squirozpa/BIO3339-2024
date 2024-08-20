@@ -25,9 +25,7 @@ from genetic_algorithm.utils.instance_functions import init_population
 from genetic_algorithm.utils.worker_functions import run_population
 from genetic_algorithm.utils import consensus
 ####################################################################################################
-sequences = reader.read_fasta("_input_files/marboxes_27nts.fasta")
-binary_gene_pool = BinaryGenePool(genes=sequences)
-index_gene_pool = IndexGenePool(genes=sequences, vector_size=25)
+
 ####################################################################################################
 
 

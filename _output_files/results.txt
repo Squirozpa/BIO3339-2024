@@ -1,143 +1,119 @@
-Population ID: 2632943058384, Size: 1000, Best Individual: Individual: 2202666636960, Fitness: 9195, Iteration 65, Iterations: 100,  Seed: 42, Total Fitness: 9094828
-Individual: 2202666636960, Fitness: 9195, Iteration 65
-ADDNDNAWRGCACWWWHTGYTAAAHWY
-Population ID: 1698800182496, Size: 1000, Best Individual: Individual: 2879836996000, Fitness: 9178, Iteration 80, Iterations: 100,  Seed: 42, Total Fitness: 9027648
-Individual: 2879836996000, Fitness: 9178, Iteration 80
-ARVDDDATRGCACWAWWTGYTAAAWWN
-Population ID: 1769530827184, Size: 1000, Best Individual: Individual: 2940370011296, Fitness: 9170, Iteration 70, Iterations: 100,  Seed: 42, Total Fitness: 9026537
-Individual: 2940370011296, Fitness: 9170, Iteration 70
-MRNTMWATGGCACKAWWTGYYAAAWTW
-Population ID: 1711062199536, Size: 1000, Best Individual: Individual: 2198787859632, Fitness: 9141, Iteration 66, Iterations: 100,  Seed: 42, Total Fitness: 8992711
-Individual: 2198787859632, Fitness: 9141, Iteration 66
-WDNNNVAHRGCACWAAHTGYTAAAWTY
-Population ID: 1465971028000, Size: 1000, Best Individual: Individual: 1929035488128, Fitness: 9082, Iteration 59, Iterations: 100,  Seed: 42, Total Fitness: 8973463
-Individual: 1929035488128, Fitness: 9082, Iteration 59
-HDHHNNAYRGCAYKWWWTGCYAAAHWB
-Population ID: 2490021589552, Size: 1000, Best Individual: Individual: 1892308709456, Fitness: 9038, Iteration 41, Iterations: 100,  Seed: 42, Total Fitness: 8759839
-Individual: 1892308709456, Fitness: 9038, Iteration 41
-HRRVVDATRGCACKAWHTGYTAAAHWY
-Population ID: 2634329676768, Size: 1000, Best Individual: Individual: 1940395987200, Fitness: 9038, Iteration 93, Iterations: 100,  Seed: 42, Total Fitness: 8970453
-Individual: 1940395987200, Fitness: 9038, Iteration 93
-RAVHVDAYRGCACDWWDWGCHAAAHDH
-Population ID: 2869030793248, Size: 1000, Best Individual: Individual: 1541545874528, Fitness: 9019, Iteration 35, Iterations: 100,  Seed: 42, Total Fitness: 8970147
-Individual: 1541545874528, Fitness: 9019, Iteration 35
-ARHMHVAYGGCACWAAWDGBYAAAWBY
-Population ID: 1985915531824, Size: 1000, Best Individual: Individual: 1985901768016, Fitness: 8970, Iteration 0, Iterations: 100,  Seed: 42, Total Fitness: 8970000
-Individual: 1985901768016, Fitness: 8970, Iteration 0
-NAVNHAATRGCACNAAWTGYTAAAMDY
-Population ID: 2268950150032, Size: 1000, Best Individual: Individual: 2268939526240, Fitness: 8970, Iteration 0, Iterations: 100,  Seed: 42, Total Fitness: 8970000
-Individual: 2268939526240, Fitness: 8970, Iteration 0
-WANNHAATRGCACWAWTTGYTAAAHWY
+Population ID: 2505248787392, Size: 1000, Best Individual: Individual: 2505255669392, Fitness: 38, Iteration 0, Iterations: 2,  Seed: 42, Total Fitness: 28513
+Individual: 2505255669392, Fitness: 38, Iteration 0
+NAGNMKATAGCACDAWWTGYTAAAAAW
+Population ID: 2441837160416, Size: 1000, Best Individual: Individual: 2441840042752, Fitness: 25, Iteration 0, Iterations: 2,  Seed: 42, Total Fitness: 16310
+Individual: 2441840042752, Fitness: 25, Iteration 0
+HDNDNRATRGCACDWWTTGYTAAAWDY
 Gene count 
 >thrL_27nts_sh2017
-: 2
+: 1
 >LeuL_27nts_sh2017
-: 6
+: 0
 >degP_27nts_sh2017
-: 2
+: 1
 >map_27nts
-: 6
+: 1
 >lacZ_27nts_sh2017
-: 3
+: 1
 >acrAB_27nts
-: 5
+: 1
 >pheP_27nts_sh2017
-: 5
+: 2
 >nfsB_27nts
-: 4
+: 0
 >fldA_27nts
-: 3
+: 1
 >modE_27nts_sh2017
-: 3
+: 0
 >acrZ_27nts
 : 1
 >ybiV_27nts_sh2017
-: 2
+: 0
 >ybiV_27nts_sh2017_1
-: 3
+: 1
 >ybjC_27nts_sh2017
-: 6
+: 1
 >ybjC_27nts
-: 7
+: 1
 >poxB_27nts
-: 8
+: 0
 >pqiA_27nts
-: 5
+: 0
 >mdtG_27nts
-: 7
+: 0
 >ycgZ_27nts_sh2017
-: 8
+: 2
 >ompW_27nts_cand1
-: 6
+: 0
 >ompW_27nts_cand2
-: 5
+: 1
 >acnA_27nts
-: 3
+: 0
 >ribA_27nts
-: 7
+: 0
 >fnr_27nts_sh2017
-: 3
+: 2
 >aldA_27nts
-: 5
+: 2
 >yncE_27nts
-: 7
+: 1
 >yneO_27nts_sh2017
-: 4
+: 2
 >fumC_27nts
-: 8
+: 1
 >zwf_27nts
-: 3
+: 1
 >yeeY_27nts_sh2017
-: 5
+: 2
 >nfo_27nts
-: 4
+: 0
 >micF_27nts
-: 8
+: 2
 >inaA_27nts
-: 3
+: 1
 >ypeC_27nts_sh2017
-: 2
+: 0
 >yfeS_27nts_sh2017
-: 3
+: 2
 >xseA_27nts_sh2017
-: 3
+: 1
 >fldB_27nts
-: 6
+: 1
 >mdaB_27nts
-: 5
+: 2
 >tolC_27nts
-: 9
+: 1
 >yhbV_27nts_sh2017
-: 4
+: 2
 >yhbW_27nts
-: 2
+: 0
 >yrbG_27nts_sh2017
-: 3
+: 1
 >slp_27nts
-: 6
->hdeA_27nts
-: 3
->waaY_27nts
-: 5
->yidQ_27nts_sh2017
-: 3
->mnmG_27nts_sh2017
 : 2
+>hdeA_27nts
+: 1
+>waaY_27nts
+: 0
+>yidQ_27nts_sh2017
+: 1
+>mnmG_27nts_sh2017
+: 1
 >yiiG_27nts_sh2017
-: 4
+: 1
 >sodA_27nts
-: 7
+: 1
 >fpr_27nts
-: 6
+: 0
 >pgi_27nts
-: 5
+: 0
 >yjcC_27nts_sh2017
-: 5
+: 0
 >purA_27nts
-: 4
+: 1
 >yjjQ_27nts_sh2017
-: 3
+: 0
 >deoB_27nts_sh2017
-: 4
+: 0
 >rob_27nts                                   
-: 5
+: 0
